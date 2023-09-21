@@ -1,0 +1,78 @@
+df.describe() - mean count min max std 
+df.iloc[-1] #index location
+df.loc[1] #name of index 
+
+plt eg
+
+plt.xlabel("Days")
+plt.ylabel("Temp")
+plt.title("Weather")
+plt.plot(day,min,label='min')
+plt.plot(day,mix,label='mix')
+plt.plot(day,avg,label='avg')
+plt.legend()
+
+
+bar-
+plt.ylabel("Revenue")
+plt.title("US Stocks")
+plt.bar(ypos-0.2,b,width = 0.4,label="Revenue")
+plt.bar(ypos+0.2,profit,width = 0.4,label="Profit")
+
+#for pie chart give 2 list one with numbers other with name
+b = ['Google','Amazon','Apple','Meta']
+a=[333,222,266,239]
+plt.axis("Equal")
+plt.pie(a,labels=b,radius=1.2,autopct="%0.2f%%")
+plt.legend()
+plt.grid()
+
+
+Extra 
+plt.axis("Equal")
+plt.pie(a,labels=b,radius=1.2,autopct="%0.2f%%",explode=[0,0,0,0.2],startangle =120)
+
+
+0,1,2 from abc
+from sklearn.preprocessing import LabelEncoder
+le_company = LabelEncoder()
+le_job = LabelEncoder()
+le_degree = LabelEncoder()
+inputs['company_n'] = le_company.fit_transform(inputs['company'])
+
+
+
+inputs['job_n'] = le_job.fit_transform(inputs['job'])
+inputs['degree_n'] = le_degree.fit_transform(inputs['degree'])
+
+In machine learning, a pipeline refers to a sequence of data processing steps that are chained together to form a cohesive workflow. It encompasses various stages such as data preprocessing, feature extraction, model training, and prediction
+
+
+from sklearn.model_selection import GridSearchCV
+clf = GridSearchCV(svm.SVC(gamma='auto'), {
+    'C': [1,10,20],
+    'kernel': ['rbf','linear']
+}, cv=5, breturn_train_score=False)
+clf.fit(iris.data, iris.target)
+clf.cv_results_
+
+
+df = pd.DataFrame(clf.cv_results_)
+df
+
+clf.best_score_
+
+
+L1 and L2 regularization are techniques used in machine learning to prevent overfitting and improve the generalization of models. They achieve this by adding a regularization term to the loss function during model training.
+
+L1 Regularization (Lasso Regression):
+L1 regularization adds a penalty term to the loss function that is proportional to the absolute value of the model's coefficients. It encourages sparsity in the coefficient values, meaning it pushes some coefficients to exactly zero. As a result, L1 regularization can perform feature selection, effectively eliminating less important features from the model.
+The L1 regularization term is calculated as the sum of the absolute values of the coefficients multiplied by a regularization parameter (λ):
+Regularization term = λ * Σ|coefficients|
+
+L2 Regularization (Ridge Regression):
+L2 regularization adds a penalty term to the loss function that is proportional to the square of the model's coefficients. It discourages large weights and encourages smaller and more evenly distributed weights across all features. Unlike L1 regularization, L2 regularization does not force coefficients to become exactly zero, but it significantly reduces their magnitudes.
+The L2 regularization term is calculated as the sum of the squared values of the coefficients multiplied by a regularization parameter (λ):
+Regularization term = λ * Σ(coefficients^2)
+
+Overfitting is a phenomenon that occurs when a machine learning model performs exceptionally well on the training data but fails to generalize well to unseen or test data. In other words, the model becomes too specialized to the training data and fails to capture the underlying patterns or relationships that exist in the broader dataset or real-world scenarios.
